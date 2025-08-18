@@ -1,0 +1,35 @@
+<div class="d-flex justify-content-between">
+  <h2>Edição de usuários</h2>
+  <h4>
+    <a href="/users">
+      <i class="d-flex align-items-center bi bi-arrow-left-square"></i>
+    </a>
+  </h4>
+</div>
+<form action="/users/update/{{user.id}}" method="post">
+  <div class="mb-3">
+    <label for="name" class="form-label">Nome do usuário</label>
+    <input value="{{user.name}}" type="text" name="name" class="form-control" id="name" placeholder="Jebedaia">
+</div>
+<div class="mb-3 ml-3">
+    <label for="email" class="form-label">Email do usuário</label>
+    <input type="text" value="{{user.email}}" name="email" class="form-control" id="email"
+      placeholder="example@email.com">
+</div>
+<div class="mb-3 ml-3">
+  <label for="password" class="form-label">Senha do usuário</label>
+    <input type="password" value="" name="password" class="form-control" id="password" placeholder="Deixe em branco para não alterar">
+</div>
+<div class="mb-3 ml-3">
+  <label for="majorId" class="form-label">Informe seu curso</label> 
+  <select class="form-select"  id="majorId" name="majorId">
+        {{#each majors}}
+          <option value="{{id}}" {{#if (eq id ../user.majorId)}}selected{{/if}}>{{name}}</option>
+          {{/each}}
+  </select>
+</div>
+<div class="mb-3 ml-3">
+    <button type="submit" class="btn btn-primary">Atualizar usuário</button>
+</div>
+</form>
+

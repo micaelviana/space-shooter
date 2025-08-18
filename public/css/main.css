@@ -1,0 +1,87 @@
+#header {
+  color: #4D926F;
+}
+
+h1,
+h2 {
+  color: #4D926F;
+  margin-left: 10px;
+}
+
+a {
+  color: black;
+  text-decoration: none !important;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#space {
+  height: 80vh;
+  background-image: url("../assets/png/Background/starBackground.png");
+  margin-top: 50px;
+  margin-left: 100px;
+  max-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+#shot {
+  position: absolute;
+}
+
+#ship {
+  position: absolute;
+}
+
+.enemy-ship {
+  position: absolute;
+}
+
+.enemy-ufo {
+  position: absolute;
+}
+
+.enemy-small-meteor {
+  position: absolute;
+}
+
+.enemy-big-meteor {
+  position: absolute;
+}
+
+#hud {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 1000;
+}
+
+#lives {
+  display: flex;
+  gap: 5px;
+}
+
+#lives img {
+  width: 30px;
+  height: 30px;
+}
+
+#score {
+  color: white;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  min-width: 100px;
+  text-align: right;
+}
+
+/*# sourceMappingURL=main.css.map */

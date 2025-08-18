@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-between">
+  <h2>Atualização de curso</h2>
+  <h4>
+    <a href="/majors">
+      <i class="d-flex align-items-center bi bi-arrow-left-square"></i>
+    </a>
+  </h4>
+</div>
+<form action="/majors/update/{{major.id}}" method="post">
+  <div class="mb-3">
+  <label for="code" class="form-label">Código do Curso</label>
+  <input 
+  value="{{major.code}}"
+  type="text" 
+  name="code"
+  class="form-control" 
+  id="code" 
+  placeholder="IE08">
+</div>
+<div class="mb-3 ml-3">
+  <label for="code" class="form-label">Nome do Curso</label>
+  <input type="text" 
+  value="{{major.name}}"
+  name="name"
+  class="form-control" 
+  id="name" 
+  placeholder="Engenharia de software">
+</div>
+<div class="mb-3 ml-3">
+  <label for="description" class="form-label">Texto</label>
+  <textarea
+    name="description"
+    class="form-control" 
+    id="description" 
+    rows="3"
+    >{{major.description}}</textarea>
+</div>
+<div class="mb-3 ml-3">
+<button type="submit" class="btn btn-primary">Atualizar</button>
+</div>

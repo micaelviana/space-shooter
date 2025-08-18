@@ -1,0 +1,22 @@
+<div class="d-flex justify-content-between">
+  <h2>Login de usuário</h2>
+  <h4>
+    <a href="/users">
+      <i class="d-flex align-items-center bi bi-arrow-left-square"></i>
+    </a>
+  </h4>
+</div>
+<form action="/users/login" method="post">
+  <div class="mb-3 ml-3">
+    <label for="email" class="form-label">Email do usuário</label>
+    <input type="text" value="{{user.email}}" name="email" class="form-control" id="email"
+      placeholder="example@email.com">
+  </div>
+  <div class="mb-3 ml-3">
+    <label for="password" class="form-label">Senha do usuário</label>
+    <input type="password" value="{{user.password}}" name="password" class="form-control" id="password">
+  </div>
+  <div class="mb-3 ml-3">
+    <button type="submit" class="btn btn-primary">Efetuar login</button>
+  </div>
+</form>

@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Ranking</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Posicão</th>
+        <th>Usuário</th>
+        <th>Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each ranking}}
+      <tr>
+        <td>{{inc @index}}</td>
+        <td>{{this.userName}}</td>
+        <td>{{this.score}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

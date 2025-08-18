@@ -1,0 +1,39 @@
+<div class="d-flex justify-content-between align-items-start">
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{major.name}}</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary">{{major.code}}</h6>
+    <p class="card-text">{{major.description}}</p>
+    <a data-bs-toggle="modal" data-bs-target="#modal-remove-major-{{id}}">
+        <i class="bi bi-trash"></i>
+      </a>
+  </div>
+</div>
+  <h4>
+    <a href="/majors">
+      <i class="bi bi-arrow-left-square"></i>
+    </a>
+  </h4>
+</div>
+
+<!-- eu nao consigo remover o curso se tiver alunos nele
+-->
+<div class="modal fade" id="modal-remove-major-{{id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fs-5" id="exampleModalLabel">Remover curso</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Tem certeza que deseja remover o curso <b>{{major.name}}</b>?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" onclick="removeMajor('{{major.id}}')" class="btn btn-primary">Sim, pode remover</button>
+      </div>
+    </div>
+  </div>
+</div>

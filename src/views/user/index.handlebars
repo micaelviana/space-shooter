@@ -1,0 +1,61 @@
+<div class="d-flex justify-content-between">
+  <h2>Listagem de Usuários</h2>
+  <h4>
+    <a href="/users/create">
+      <i class="d-flex align-items-center bi bi-plus-square">
+      </i>
+    </a>
+  </h4>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Email</th>
+      <th class="text-end">Opções</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each users}}
+    <tr>
+      <td>{{name}}</td>
+      <td>{{email}}</td>
+      <td class="text-end">
+        <a href="/users/read/{{id}}">
+          <i class="bi bi-eye"></i>
+        </a>
+        <a href="/users/update/{{id}}">
+          <i class="bi bi-pencil"></i>
+        </a>
+        <a data-bs-toggle="modal" data-bs-target="#modal-remove-user-{{id}}">
+          <i class="bi bi-trash"></i>
+        </a>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+{{#each users}}
+<!-- Modal -->
+<div class="modal fade" id="modal-remove-user-{{id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fs-5" id="exampleModalLabel">Remover usuário</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Tem certeza que deseja remover o usuário <b>{{name}}</b>?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" onclick="removeUser('{{id}}')" class="btn btn-primary">Sim, pode remover</button>
+      </div>
+    </div>
+  </div>
+</div>
+{{/each}}
