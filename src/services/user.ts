@@ -104,3 +104,8 @@ export const updateScoreUser = async (score: number, userId: string) => {
     data: { score },
   });
 };
+
+
+export const getGameSession = async (userId: string) => {
+  return prisma.gameSession.findFirst({ where: { userId: userId } });
+};

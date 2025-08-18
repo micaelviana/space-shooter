@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { getUsers, getUser, createUser, removeUser, updateUser, checkAuth, getUserByEmail } from "../services/user";
+import { getUsers, getUser, createUser, removeUser, updateUser, checkAuth, getUserByEmail, getGameSession, updateScoreUser, saveScoreUser } from "../services/user";
 import { getMajor, getMajors } from "../services/major";
 import { loginDTO, createUserDTO } from "../types/user";
 
@@ -113,4 +113,26 @@ const logout = (req: Request, res: Response) => {
   })
 }
 
-export default { index, create, remove, read, update, login, logout }
+
+const saveScore = async (req: Request, res: Response) => {
+  const { score } = req.params;
+  const id = req.session.id_session ?? 0
+
+  // salvar na tabela game_sessions
+  try {
+    const actualGameSession = await getGameSession(id.toString());
+    let gameSession;
+    if (actualGameSession && parseInt(score) > actualGameSession.score)
+      gameSession = await updateScoreUser(parseInt(score), id.toString());
+    else if (!actualGameSession)
+      gameSession = await saveScoreUser(parseInt(score), id.toString());
+
+    console.log(gameSession);
+    console.log('Pontuação salva com sucesso!');
+  } catch (error) {
+    res.status(500).json({ message: 'Erro ao salvar a pontuação!' });
+    console.log(error);
+  }
+};
+
+export default { index, create, remove, read, update, login, logout, saveScore }
