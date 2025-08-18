@@ -1,10 +1,5 @@
 # Projeto final
 
-Me enrolei e ficou incompleto, não fiz a requisição AJAX do Game Over.
-Para testar a página de Ranking adicionei manualmente as pontuações usando o phpMyAdmin:
-
-![Ranking](./screenshots/firefox_m9U6JciBlQ.png)
-
 ## Configuração
 `npm install`
 
