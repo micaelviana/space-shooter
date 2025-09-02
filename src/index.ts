@@ -8,9 +8,7 @@ import { logger } from './middleware/logger';
 import cookieParser from "cookie-parser";
 import { v4 as uuidv4 } from 'uuid'
 import session from 'express-session'
-//TODO: ainda nao funciona em producao
 import * as helpers from './views/helpers';
-import path from 'path'
 
 //arquivos que terminam com d.ts sao procurados pelo typescript para serem encorporados
 //reabrir uma interface do modulo para coolocar uma propriedade
