@@ -13,7 +13,7 @@
 mysql:latest`
 
 `docker run -d \
---name phpmyadmin \
+--name phpmyadmin-game-app \
 --network game-app-network \
 -e PMA_HOST=mysql-game-app \
 -e PMA_PORT=3306 \
@@ -27,7 +27,7 @@ phpmyadmin/phpmyadmin`
 ## Comandos para acessar a página
 
 ```bash
-docker start mysql-game-app phpmyadmin 
+docker start mysql-game-app phpmyadmin-game-app
 npm run sass
 npm start
 ```
