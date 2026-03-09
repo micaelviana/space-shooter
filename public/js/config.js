@@ -1,7 +1,30 @@
 //config comecou como varios numeros
 export const FPS = 100;
-export const TAMX = 400;
-export const TAMY = 550;
+
+const BASE_TAMX = 400;
+const BASE_TAMY = 550;
+const GAME_RATIO = BASE_TAMX / BASE_TAMY;
+const GAME_MARGIN = 24;
+const MIN_GAME_HEIGHT = 260;
+
+const navbarHeight = document.querySelector(".navbar")?.offsetHeight ?? 0;
+const viewportHeight = window.innerHeight;
+const viewportWidth = window.innerWidth;
+
+const availableHeight = Math.max(
+  MIN_GAME_HEIGHT,
+  viewportHeight - navbarHeight - GAME_MARGIN
+);
+const availableWidth = Math.max(280, viewportWidth - GAME_MARGIN);
+
+const widthByHeight = Math.round(availableHeight * GAME_RATIO);
+const gameWidth = Math.min(widthByHeight, availableWidth);
+const gameHeight = Math.round(gameWidth / GAME_RATIO);
+
+document.documentElement.style.setProperty("--game-available-height", `${availableHeight}px`);
+
+export const TAMX = gameWidth;
+export const TAMY = gameHeight;
 export const PROB_ENEMY_SHIP = 0.2 / 100;
 export const PROB_ENEMY_UFO = 0.2 / 100;
 export const PROB_ENEMY_BIG_METEOR = 0.1 / 100;

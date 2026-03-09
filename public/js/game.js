@@ -56,13 +56,12 @@ function gerenciaTeclaEspaco() {
   if (!gameStarted || isGameOverState) {
     startGame();
   } else {
-    // Obtém a posição atual da nave
-    const rect = ship.element.getBoundingClientRect();
-    const shipCenterX = rect.left + (rect.width / 2);
-    const shipTop = rect.top;
+    const shipBottom = parseInt(ship.element.style.bottom);
+    const shipLeft = parseInt(ship.element.style.left);
+    const shotBase = shipBottom + ship.element.offsetHeight - 8;
+    const shotLeft = shipLeft + Math.floor(ship.element.offsetWidth / 2) - 4;
 
-    // Criar o tiro na posição correta da nave
-    createShot(window.innerHeight - shipTop, parseInt(ship.element.style.left) + 45);
+    createShot(shotBase, shotLeft);
   }
 }
 

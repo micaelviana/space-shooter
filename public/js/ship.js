@@ -16,7 +16,7 @@ class Ship {
     this.normalImageSrc = directions[this.direction];
     this.element.src = this.normalImageSrc;
     this.element.style.bottom = "20px"
-    this.element.style.left = `${TAMX / 2 - 50}px` // Center the ship initially
+    this.element.style.left = `${Math.floor((TAMX - 100) / 2)}px` // Center the ship initially
     this.lives = 4;
     this.isDamaged = false; // To prevent taking damage again while already damaged
     space.element.appendChild(this.element)
@@ -36,12 +36,14 @@ class Ship {
     const currentLeft = parseInt(this.element.style.left);
     const step = 1; // Movement speed, can be adjusted
 
+    const shipWidth = this.element.offsetWidth || 100;
+    const maxLeft = Math.max(0, TAMX - shipWidth);
+
     if (this.direction === 0) { // Moving left
       this.element.style.left = `${Math.max(0, currentLeft - step)}px`
     }
     if (this.direction === 2) { // Moving right
-      // Assuming ship width is 100px for boundary calculation
-      this.element.style.left = `${Math.min(TAMX - 100, currentLeft + step)}px`
+      this.element.style.left = `${Math.min(maxLeft, currentLeft + step)}px`
     }
   }
 
@@ -67,7 +69,8 @@ class Ship {
     this.direction = 1; // Center
     this.normalImageSrc = directions[this.direction];
     this.element.src = this.normalImageSrc;
-    this.element.style.left = `${TAMX / 2 - 50}px`;
+    const shipWidth = this.element.offsetWidth || 100;
+    this.element.style.left = `${Math.floor((TAMX - shipWidth) / 2)}px`;
     this.isDamaged = false;
     
     //isso aqui vem da config, nao tem this
